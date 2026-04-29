@@ -164,18 +164,6 @@ Use these to log in on the frontend:
 - **Username**: `manoj`
 - **Password**: `Man@DSP123`
 
----
-
-##  Authors
-
-Project by **DSA-10** Team:
-- Adnan Ali
-- Imthias Abubakkar
-- Manoj Kumar
-- Vivek Bommala
-
----
-
 ## Contributing
 
 Found a bug or have ideas to improve?  
