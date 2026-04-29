@@ -1,0 +1,37 @@
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    container_name: feedback_db
+    environment:
+      POSTGRES_DB: feedbackdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: team_alpha
+    ports:
+      - "5050:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: pgadmin_ui
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: kohlimanu135@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: team_alpha
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
+  pgadmin_data:
